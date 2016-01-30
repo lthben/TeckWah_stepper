@@ -46,10 +46,27 @@ void loop() {
 
     if (incoming == '1') {
 
-      if (DEBUG) Serial.println("spinning");
+      if (DEBUG) Serial.println("spinning cw");
 
       digitalWrite(dirPin, HIGH); //clockwise motion
-      digitalWrite(nSleepPin, HIGH);
+
+      do_rotation();
+      
+    } else if (incoming == '2') {
+
+       if (DEBUG) Serial.println("spinning ccw");
+
+      digitalWrite(dirPin, LOW); //counter-clockwise motion
+
+      do_rotation();
+    }
+  }
+  delay(10);
+}
+
+void do_rotation() {
+
+      digitalWrite(nSleepPin, HIGH); //awake from sleep
       delay(2); //need 2ms delay
 
       for (int i = 0; i < total_step_num; i++) {
@@ -69,12 +86,8 @@ void loop() {
 
       }
 
-      digitalWrite(nSleepPin, LOW);
-      digitalWrite(dirPin, LOW);
+      digitalWrite(nSleepPin, LOW); //put back to sleep to prevent current draw
       delay(2);//need 2ms delay
-    }
-  }
-  delay(10);
 }
 
 void calc_step_delay(int index) {

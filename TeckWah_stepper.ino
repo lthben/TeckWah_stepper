@@ -50,6 +50,8 @@ void loop() {
 
       digitalWrite(dirPin, HIGH); //clockwise motion
 
+      delay(2);
+
       do_rotation();
       
     } else if (incoming == '2') {
@@ -57,6 +59,8 @@ void loop() {
        if (DEBUG) Serial.println("spinning ccw");
 
       digitalWrite(dirPin, LOW); //counter-clockwise motion
+
+      delay(2);
 
       do_rotation();
     }

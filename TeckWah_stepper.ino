@@ -89,7 +89,7 @@ void do_rotation() {
         delay(my_step_delay);
 
       }
-
+      
       digitalWrite(nSleepPin, LOW); //put back to sleep to prevent current draw
       delay(2);//need 2ms delay
 }

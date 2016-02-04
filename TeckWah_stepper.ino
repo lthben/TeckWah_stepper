@@ -5,7 +5,7 @@
  *      Using the DRV8825 driver and a Pololu NEMA 23 stepper
  *      200 step motor. 1/4 step configuration, so 800 steps per revolution.
  *
- * Last updated: 26 Jan 2016
+ * Last updated: 3 Feb 2016
  */
 
 #define dirPin 7
@@ -14,7 +14,7 @@
 
 //USER DEFINED SETTINGS
 const float NUM_TURNS = 1; //num of revolutions
-const int STEP_DELAY = 8; //delay in ms between steps. The smaller the delay, the faster the speed.
+const int STEP_DELAY = 9; //delay in ms between steps. The smaller the delay, the faster the speed.
 bool DEBUG = false;
 
 int total_step_num, my_step_delay, step_interval, num_of_accel_steps;
@@ -50,7 +50,7 @@ void loop() {
 
       digitalWrite(dirPin, HIGH); //clockwise motion
 
-      delay(2);
+      delay(2000);
 
       do_rotation();
       
